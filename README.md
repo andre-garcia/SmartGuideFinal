@@ -5,9 +5,13 @@ This is the code for deploying the SmartGuide chatbot in a cluster in Okteto whi
 If you prefer to create your own `bert.pkl` file instead, all you have to do is run this code locally: 
 
 `from sentence_transformers import SentenceTransformer`
+
 `import pickle`
+
 `bert = SentenceTransformer('all-MiniLM-L6-v2')`
+
 `with open("bert-2.pkl", 'wb') as f:`
+
 `    pickle.dump(bert, f)`
 
 Setting-up
