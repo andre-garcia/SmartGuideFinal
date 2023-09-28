@@ -10,7 +10,7 @@ If you prefer to create your own `bert.pkl` file instead, all you have to do is 
 
 `bert = SentenceTransformer('all-MiniLM-L6-v2')`
 
-`with open("bert-2.pkl", 'wb') as f:`
+`with open("bert.pkl", 'wb') as f:`
 
 `    pickle.dump(bert, f)`
 
