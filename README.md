@@ -2,12 +2,7 @@
 
 This is the code for deploying the SmartGuide chatbot in a cluster in Okteto which contains Rasa server, Action server, Chatbot/front-end server and FastAPI server (where the model to answer the immigration questions is). 
 
-There are two files that are missing, and you can find them both in the repository https://github.com/andre-garcia/SmartGuideFinal because they were too big to be uploaded to github via web:
-
-- `models/20230927-090242-rounded-line.tar.gz` - the file with the latest trained Rasa model (not to be confused with the model in the fastAPI app). This file should be put in the ./models folder (you can also train your own model, but keep in mind this will take a LONG time, given the size of our NLU file)
-- `fastAPI/bert.pkl` - this file is the pickled version of the SentenceTransformer model, used to get the answers to the immigration queries, which should be put in the ./fastAPI folder. i
-
-if you prefer to create your own `bert.pkl` file instead, all you have to do is run this code locally: 
+If you prefer to create your own `bert.pkl` file instead, all you have to do is run this code locally: 
 
 `from sentence_transformers import SentenceTransformer`
 `import pickle`
