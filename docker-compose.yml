@@ -1,0 +1,72 @@
+
+version: '3.6.8'
+services:
+  rasa:
+    image: rasa/rasa:latest-full
+    ports:
+      - "5006:5006"
+    restart: always
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./actions:/app/actions
+      - ./tests:/app/tests
+      - ./:/app
+    command:
+      - run
+      - -m
+      - models
+      - --enable-api
+      - --cors
+      - "*"
+      - --debug
+      - -p 5006
+    working_dir: /app
+    networks:
+      - all
+
+
+
+
+  action-server:
+    image: rasa/rasa:latest-full
+    ports:
+      - "5055:5055"
+    restart: always
+    volumes:
+      - ./actions:/app/actions
+
+    command:
+      - run
+      - actions
+      - --cors
+      - "*"
+      - --debug
+
+    working_dir: /app
+    networks:
+      - all
+    
+  chatbot:
+    image: nginx:latest
+    volumes:
+      - ./chatbot:/usr/share/nginx/html
+    restart: always
+    ports:
+      - "8080:80"
+    networks:
+      - all
+
+
+  fastapi:
+    build: .
+    image: okteto/python-fastapi:latest
+    volumes:
+      - ./fastAPI:/app
+    restart: always
+
+    ports:
+      - "8088:8088"
+    working_dir: /app
+    networks:
+      - all

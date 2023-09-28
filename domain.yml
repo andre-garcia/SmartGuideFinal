@@ -1,0 +1,62 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_hello_world
+  - thanks
+  - ask_immigration_questions
+  - out_of_scope
+
+responses:
+  utter_greet:
+  - text: "Hello! You can ask me questions related to immigrating to Canada. Keep in mind I am still under development and always double-check the information I provide. :) Please explain your doubt with details."
+
+#  utter_cheer_up:
+#  - text: "Here is something to cheer you up:"
+#    image: "https://www.gracielushihtzu.com/wp-content/uploads/2012/07/TweetingCat.jpeg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+#  utter_happy:
+#  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye! Have a nice day :)"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_thanks:
+    - text: "You are welcome, it is my pleasure to assist you."
+
+  utter_sorry:
+    - text: "Sorry to hear that. Please rephrase your question and let's try again. :)"
+
+  utter_great:
+    - text: "That's great to hear! Let me know if you have more doubts. Have a nice day! :)"
+
+  utter_please_rephrase:
+    - text: "I'm sorry, I didn't quite understand that. :( Could you rephrase?"
+
+  utter_default:
+    - text: "I'm sorry, I didn't quite understand that. :( Could you rephrase?"
+
+  utter_out_of_scope:
+  - text: "I'm sorry, but I am only prepared to handle questions related to immigration to Canada."
+
+
+actions:
+  - action_hello_world
+  - action_immigration_questions
+  - action_hello
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,24 @@
+version: "3.1"
+
+stories:
+
+- story: Express Thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- story: User asks for immigration question - answer helped
+  steps:
+  - intent: ask_immigration_questions
+  - action: action_immigration_questions
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_great
+
+- story: User asks for immigration question - answer did not help
+  steps:
+  - intent: ask_immigration_questions
+  - action: action_immigration_questions
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry
